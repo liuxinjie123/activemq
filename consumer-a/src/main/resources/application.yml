@@ -9,6 +9,8 @@ spring:
     pool:
       enabled: true
       max-connections: 10
+    packages:
+      trust-all: true
 
 queueName: out.queue
 topicName: out.topic

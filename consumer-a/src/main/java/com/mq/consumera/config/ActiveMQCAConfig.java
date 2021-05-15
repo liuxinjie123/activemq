@@ -29,6 +29,9 @@ public class ActiveMQCAConfig {
     @Value("${spring.activemq.broker-url}")
     private  String brokerUrl;
 
+    @Value("${spring.activemq.packages.trust-all}")
+    private boolean trustAllPackages;
+
     @Bean
     public Queue queue(){
         return new ActiveMQQueue(queueName);
@@ -41,7 +44,9 @@ public class ActiveMQCAConfig {
 
     @Bean
     public ActiveMQConnectionFactory connectionFactory() {
-        return new ActiveMQConnectionFactory(usrName, password, brokerUrl);
+        ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(usrName, password, brokerUrl);
+        factory.setTrustAllPackages(trustAllPackages);
+        return factory;
     }
 
     @Bean

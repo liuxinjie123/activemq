@@ -26,9 +26,11 @@ public class PublishController {
 
     @GetMapping("/queue")
     public Response queue(){
-
-        for (int i = 0; i < 10 ; i++){
-            jms.convertAndSend(queue, "queue"+i);
+        MQObj obj;
+        for (int i = 0; i < 10 ; i++) {
+            obj = new MQObj();
+            obj.setData("queue"+i);
+            jms.convertAndSend(queue, obj);
         }
 
         return Response.success();
@@ -44,8 +46,8 @@ public class PublishController {
     }
 
     @JmsListener(destination = "out.queue")
-    public void consumerMsg(String msg){
-        System.out.println(msg);
+    public void consumerMsg(MQObj obj){
+        System.out.println(obj);
     }
 
 

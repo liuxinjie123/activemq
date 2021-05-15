@@ -24,10 +24,14 @@ public class ActiveMQCBConfig {
     private String usrName;
 
     @Value("${spring.activemq.password}")
-    private  String password;
+    private String password;
 
     @Value("${spring.activemq.broker-url}")
-    private  String brokerUrl;
+    private String brokerUrl;
+
+    @Value("${spring.activemq.packages.trust-all}")
+    private boolean trustAllPackages;
+
 
     @Bean
     public Queue queue(){
@@ -41,7 +45,9 @@ public class ActiveMQCBConfig {
 
     @Bean
     public ActiveMQConnectionFactory connectionFactory() {
-        return new ActiveMQConnectionFactory(usrName, password, brokerUrl);
+        ActiveMQConnectionFactory factory = new ActiveMQConnectionFactory(usrName, password, brokerUrl);
+        factory.setTrustAllPackages(trustAllPackages);
+        return factory;
     }
 
     @Bean

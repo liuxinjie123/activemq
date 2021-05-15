@@ -11,12 +11,12 @@ public class MQObj<T> implements Serializable {
     /**
      * code
      */
-    private String code;
+    private String code = "000000";
 
     /**
      * msg
      */
-    private String msg;
+    private String msg = "SUCCESS";
 
     /**
      * data
