@@ -9,15 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>producer</artifactId>
+    <artifactId>common</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.mq</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
-
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
 
 </project>

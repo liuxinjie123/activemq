@@ -11,5 +11,13 @@
 
     <artifactId>consumer-a</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.mq</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

@@ -1,4 +1,4 @@
-package com.mq.consumera.listener;
+package com.mq.consumerb.listener;
 
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;

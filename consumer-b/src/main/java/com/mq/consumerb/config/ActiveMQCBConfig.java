@@ -1,4 +1,4 @@
-package com.mq.consumera.config;
+package com.mq.consumerb.config;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;

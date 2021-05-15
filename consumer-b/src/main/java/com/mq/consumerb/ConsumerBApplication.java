@@ -1,4 +1,4 @@
-package com.mq.consumera;
+package com.mq.consumerb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

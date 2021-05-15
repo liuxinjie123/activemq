@@ -1,5 +1,7 @@
 package com.mq.producer.controller;
 
+import com.mq.common.dto.MQObj;
+import com.mq.common.dto.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsMessagingTemplate;
@@ -23,19 +25,30 @@ public class PublishController {
     private Topic topic;
 
     @GetMapping("/queue")
-    public String queue(){
+    public Response queue(){
 
         for (int i = 0; i < 10 ; i++){
             jms.convertAndSend(queue, "queue"+i);
         }
 
-        return "queue 发送成功";
+        return Response.success();
+    }
+
+    @GetMapping(value = "/queue/obj")
+    public Response sendObjQueueMsg(String msg) {
+        MQObj obj = new MQObj();
+        obj.setData(msg);
+        jms.convertAndSend(queue, obj);
+
+        return Response.success();
     }
 
     @JmsListener(destination = "out.queue")
     public void consumerMsg(String msg){
         System.out.println(msg);
     }
+
+
 
     @RequestMapping("/topic")
     public String topic(){
