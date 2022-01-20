@@ -62,7 +62,7 @@ public class ActiveMQPConfig {
     @Bean
     public JmsListenerContainerFactory<?> jmsListenerContainerTopic(ActiveMQConnectionFactory connectionFactory){
         DefaultJmsListenerContainerFactory bean = new DefaultJmsListenerContainerFactory();
-        //设置为发布订阅方式, 默认情况下使用的生产消费者方式
+        // 设置为发布订阅方式, 默认情况下使用的生产消费者方式
         bean.setPubSubDomain(true);
         bean.setConnectionFactory(connectionFactory);
         return bean;

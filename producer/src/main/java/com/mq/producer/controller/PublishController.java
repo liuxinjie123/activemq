@@ -9,19 +9,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.jms.Queue;
 import javax.jms.Topic;
 
 @RestController
 @RequestMapping("/publish")
 public class PublishController {
-    @Autowired
+    @Resource
     private JmsMessagingTemplate jms;
-
-    @Autowired
+    @Resource
     private Queue queue;
-
-    @Autowired
+    @Resource
     private Topic topic;
 
     @GetMapping("/queue")
@@ -49,8 +48,6 @@ public class PublishController {
     public void consumerMsg(MQObj obj){
         System.out.println(obj);
     }
-
-
 
     @RequestMapping("/topic")
     public String topic(){
